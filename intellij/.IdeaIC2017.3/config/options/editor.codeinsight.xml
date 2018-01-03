@@ -1,0 +1,14 @@
+<application>
+  <component name="CodeFoldingSettings">
+    <option name="COLLAPSE_IMPORTS" value="false" />
+  </component>
+  <component name="CodeInsightSettings">
+    <option name="COMPLETION_CASE_SENSITIVE" value="2" />
+    <EXCLUDED_PACKAGE NAME="com.facebook.presto.jdbc.internal.guava" />
+    <EXCLUDED_PACKAGE NAME="com.sun" />
+    <EXCLUDED_PACKAGE NAME="com.sun.tools.javac.util.List" />
+    <EXCLUDED_PACKAGE NAME="edu.emory.mathcs.backport.java.util.Collections" />
+    <EXCLUDED_PACKAGE NAME="org.aspectj" />
+    <EXCLUDED_PACKAGE NAME="redis.clients.util.Pool" />
+  </component>
+</application>

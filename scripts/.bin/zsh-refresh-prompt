@@ -1,0 +1,6 @@
+# Reset the prompt every second. Can show current time, etc.
+TMOUT=1
+TRAPALRM() {
+    zle reset-prompt
+}
+

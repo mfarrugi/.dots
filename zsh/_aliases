@@ -1,0 +1,19 @@
+# Meta, add an alias to the end of this file.
+adda() { echo "alias $1='$2'" >> $DOTS/zsh/_aliases &&  source ~/.zshrc; }
+
+# alias vim='nvim' # nix does this :shrug:
+alias top='htop'
+alias mv='mv -iv'
+alias x='exit'
+alias trw='tmux rename-window '
+alias du='du -h --max-depth=1'
+alias g='git'
+
+alias df="echo '╓───── Disk Usage'; \
+          echo '╙────────────────────────────────────── ─ ─ '; \
+          df -h"
+
+# exa replaces `ls` and `tree`
+alias ls='exa'
+alias la='exa -la' # Override omzsh common-aliases
+alias tree='exa --tree'

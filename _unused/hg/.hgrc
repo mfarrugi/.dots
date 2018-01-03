@@ -1,0 +1,33 @@
+﻿[ui]
+username=Marco Farrugia <afmarco@gmail.com>
+ignore=~/.vcs_ignore
+style=compact
+
+[merge-patterns]
+** = internal:merge
+
+[extensions]
+record=
+color=
+rebase=
+mq=
+hgk=  
+histedit=
+pager=
+
+
+[pager]
+pager = LESS='FRX' less
+attend = l, lg, log
+
+[alias]
+last = log -p -r tip
+sho  = log -p -r
+l  = log -G --template "[{label('c.yell', ifcontains(phase, 'draft secret', '*'))}{label('c.yell',rev)} {author|user}] {desc|strip|firstline}\n" -l 10
+lg = log -G --template "[{label('c.yell', ifcontains(phase, 'draft secret', '*'))}{label('c.yell',rev)} {author|user}] {desc|strip|firstline}\n"
+
+
+[color]
+mode = ansi
+c.yell = yellow
+c.red = red

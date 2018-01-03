@@ -1,0 +1,67 @@
+[user]
+    name        = Marco Farrugia
+    email       = afmarco@gmail.com 
+
+[url "https://"]
+    insteadOf = git://
+
+[core]
+#    excludesfile = ~/.vcs_ignore                                                                           ## The Global gitignore file.
+	pager = diff-so-fancy | less --tabs=4 -RFX
+    fscache = true
+    
+[pull]
+    rebase = true                                                                                           ## Rebase instead of merging pulls.
+    
+[pretty]
+    myformat  = "%Cred%h%Creset %C(yellow)<%an>%Creset %s %Cgreen(%cr)"
+
+[alias]
+    paus    = commit -am \"STASHED COMMIT! -- NOT FOR PUSHING!\"                                            ## Simpler to keep track of than stashing.
+    resu    = reset HEAD^
+
+    l       = log --pretty=myformat --date=relative                                                         ## Prettier log.
+    ls      = log --pretty=myformat --date=relative --stat                                                  ## Shows stats.
+    lu      = log --pretty=myformat --date=relative @{u}..                                                  ## Shows "Upstream", aka unpushed, commits.
+    lus     = log --pretty=myformat --date=relative @{u}.. --stat                                           ## Upstream with stats.
+    sl      = shortlog --format='%Cred%h %Creset%s %Cgreen(%cr)' -30                                        ## Pretty short log.
+    
+    c       = commit -m
+    fc      = commit --amend -m                                                                             ## Fix the last commit message.   
+    ca      = commit -a --amend                                                                             ## Adds working files to the previous commit.
+    cm      = commit -am                                                                                    ## Stages changed files and commits w/ message.
+    
+    d       = diff                                                                                          
+    df      = diff --name-only                                                                              ## Diff files.
+    dw      = diff --word-diff=plain                                                                        ## Diff words.
+    
+    sh      = show                                                                                           
+    shf     = show --oneline --name-only                                                                    ## Show files.
+    shw     = show --word-diff=plain                                                                        ## Show words.
+
+    s       = status -sb                                                                                    ##
+                                                                                                            ##
+    all     = submodule foreach git                                                                         ##
+    a       = submodule foreach git                                                                         ##
+                                                                                                            ##
+    patch   = "!f(){ git log --pretty=email --patch-with-stat --reverse  -- $1 > my.patch ; }; f"           ## Writes for a dir/file's full history.
+                                                                                                            
+    f       = "!git fetch; git l ..@{u}"                                                                    ## Fetches and shows fetched commits.
+    in      = log --pretty=myformat --date=relative ..@{u}                                                  ## Shows fetched commits. 
+    vers    = "!f(){ git ls-remote --tags | grep $1 ;}; f"                                                  ## Shows tag for a commit (since we're not pulling tags)
+                                                                                                            
+[log]                                                                                                       
+    abbrevCommit    = true                                                                                  ## Commit hash shortened.
+    topoOrder       = true                                                                                  ## Log listed in a topological ordering.
+
+[help]
+    autocorrect = 1
+
+### NOTES ###
+# Push all but last X commits           :: git push origin master~X:master
+# Ignore changes to a tracked file      :: git update-index --assume-unchanged path/to/file.txt
+
+# Inline include ts .gitconfig
+[include]
+    path = ~/.dots/ts/gitconfig
+

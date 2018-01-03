@@ -1,0 +1,10 @@
+<application>
+  <component name="UISettings">
+    <option name="FONT_SIZE" value="14" />
+    <option name="SHOW_MEMORY_INDICATOR" value="true" />
+    <option name="SCROLL_TAB_LAYOUT_IN_EDITOR" value="false" />
+    <option name="HIDE_KNOWN_EXTENSION_IN_TABS" value="true" />
+    <option name="OVERRIDE_NONIDEA_LAF_FONTS" value="true" />
+    <option name="MAX_LOOKUP_LIST_HEIGHT" value="5" />
+  </component>
+</application>

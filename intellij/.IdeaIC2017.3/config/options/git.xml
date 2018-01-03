@@ -1,0 +1,6 @@
+<application>
+  <component name="Git.Application.Settings">
+    <option name="myPathToGit" value="$USER_HOME$/.nix-profile/bin/git" />
+    <option name="SSH_EXECUTABLE" value="IDEA_SSH" />
+  </component>
+</application>

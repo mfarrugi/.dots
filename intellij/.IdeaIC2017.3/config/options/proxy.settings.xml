@@ -1,0 +1,6 @@
+<application>
+  <component name="HttpConfigurable">
+    <option name="PROXY_AUTHENTICATION" value="true" />
+    <option name="USE_PAC_URL" value="true" />
+  </component>
+</application>

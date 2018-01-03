@@ -1,0 +1,15 @@
+bazel-*
+*.iml
+.git/*
+gentest/
+Cargo.lock
+cmake-build-debug/
+CMakeLists.txt
+.hg/
+.idea/
+.idea/*
+.iml
+.ipr
+mercurial_hooks_v3.py
+.pyc
+target/
