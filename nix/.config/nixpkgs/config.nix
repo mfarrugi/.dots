@@ -31,6 +31,7 @@
         vistafonts # for Consolas
 
         exa # Can I easily add aliases per package? eg. ls=exa
+        htop
         ripgrep
         fpp
         # Maybe don't want to install if already present..
@@ -38,6 +39,7 @@
         stow
 
         cargo
+        # python3
 
         ## Haven't used recently..
         # arduino
