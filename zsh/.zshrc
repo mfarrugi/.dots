@@ -36,3 +36,5 @@ path=(
     $HOME/.bin
     $path
 )
+
+export PYTHONSTARTUP=$DOTS/../python/_PYTHONSTARTUP.py

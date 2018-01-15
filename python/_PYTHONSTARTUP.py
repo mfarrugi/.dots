@@ -1,3 +1,7 @@
 import subprocess
 
-shell = subprocess.check_call
+def shell(*args):
+    return (subprocess.check_output(args)
+        .decode('ascii')
+        .strip()
+        .split('\n'))
