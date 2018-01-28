@@ -28,3 +28,15 @@ inoremap jk <esc>
 "  When both are set at the same time
 set relativenumber
 set number
+
+" <Leader> is \ by default
+" let mapleader = "\"
+
+" # GitGutter
+" ## Hunks
+" Next Hunk = [c
+" Prev Hunk = ]c
+" Preview = <Leader>hp
+" Stage / Add = <Leader>hs
+" Undo / Revert = <Leader>hu
+nmap <Leader>hr <Plug>GitGutterUndoHunk
