@@ -9,6 +9,7 @@
 #    excludesfile = ~/.vcs_ignore                                                                           ## The Global gitignore file.
 	pager = diff-so-fancy | less --tabs=4 -RFX
     fscache = true
+	autocrlf = input
     
 [pull]
     rebase = true                                                                                           ## Rebase instead of merging pulls.
