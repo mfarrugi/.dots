@@ -50,6 +50,10 @@ zplug load
 zmodload zsh/terminfo
 bindkey "$terminfo[kcuu1]" history-beginning-search-backward
 bindkey "$terminfo[kcud1]" history-beginning-search-forward
+bindkey "^[k" history-beginning-search-backward
+bindkey "^[j" history-beginning-search-forward
+
+
 
 ## history
 HISTSIZE=100000
