@@ -36,15 +36,29 @@
         fpp
         # Maybe don't want to install if already present..
         # curl
-        stow
+        # stow
 
-        cargo
-        # python3
+        # Easier to work with rustup for now:
+        # cargo
 
         ## Haven't used recently..
-        # arduino
         # bazel
         # clion
+      ];
+    };
+
+    # This was a nightmare, but here it is if I ever revisit...
+    embedded = with pkgs; buildEnv {
+      name = "embedded";
+      paths = [
+        gcc-arm-embedded
+        python3
+        python36Packages.pyserial
+        arduino
+        openocd
+        # bossa # needs to come from apt, would be nice of openocd just worked.
+        platformio
+        urjtag
       ];
     };
 
@@ -55,9 +69,8 @@
         google-chrome
         dropbox-cli
         # steam # still using windows for most of this..
-        # xflux-gui # builtin for ubuntu18 + gnome
+        # xflux-gui # This is now a builtin for ubuntu18 + gnome
     ];
   };
- 
  };
 }
