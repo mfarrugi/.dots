@@ -38,3 +38,5 @@ path=(
 )
 
 export PYTHONSTARTUP=$DOTS/../python/_PYTHONSTARTUP.py
+
+export CARGO_TARGET_DIR=$XDG_CACHE_HOME/cargo
