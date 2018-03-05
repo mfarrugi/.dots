@@ -40,10 +40,11 @@
 
         # Easier to work with rustup for now:
         # cargo
+        bazel
+        python3
 
         ## Haven't used recently..
-        # bazel
-        # clion
+       # clion
       ];
     };
 
@@ -52,13 +53,24 @@
       name = "embedded";
       paths = [
         gcc-arm-embedded
-        python3
         python36Packages.pyserial
         arduino
         openocd
         # bossa # needs to come from apt, would be nice of openocd just worked.
         platformio
         urjtag
+      ];
+    };
+
+    # Tools and libraries for native code development.
+    ## bazel, cargo, and others assume these things are present.
+    native = with pkgs; buildEnv {
+      name = "native";
+      paths = [
+        gnumake
+        pkgconfig
+        openssl
+        gcc
       ];
     };
 
