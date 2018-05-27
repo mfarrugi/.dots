@@ -36,7 +36,7 @@
         fpp
         # Maybe don't want to install if already present..
         # curl
-        # stow
+        # stow # installed by install.sh bootstrapping, which conflicts
 
         # Easier to work with rustup for now:
         # cargo
