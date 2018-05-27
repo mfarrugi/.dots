@@ -50,6 +50,7 @@
     f       = "!git fetch; git l ..@{u}"                                                                    ## Fetches and shows fetched commits.
     in      = log --pretty=myformat --date=relative ..@{u}                                                  ## Shows fetched commits. 
     vers    = "!f(){ git ls-remote --tags | grep $1 ;}; f"                                                  ## Shows tag for a commit (since we're not pulling tags)
+    current-branch = !giv rev-parse --abbrev-ref HEAD
                                                                                                             
 [log]                                                                                                       
     abbrevCommit    = true                                                                                  ## Commit hash shortened.
@@ -58,11 +59,14 @@
 [help]
     autocorrect = 1
 
+[rerere]
+    enabled = 1
+
 ### NOTES ###
 # Push all but last X commits           :: git push origin master~X:master
 # Ignore changes to a tracked file      :: git update-index --assume-unchanged path/to/file.txt
 
 # Inline include ts .gitconfig
 [include]
-    path = ~/.dots/ts/gitconfig
+    path = ~/.dots/twosigma-specific/_gitconfig
 

@@ -1,15 +1,24 @@
-bazel-*
-*.iml
-.git/*
+git/*
 gentest/
-Cargo.lock
-cmake-build-debug/
+make-build-debug/
 CMakeLists.txt
+
+# Mercurial
 .hg/
+mercurial_hooks_v3.py
+
+# Bazel
+bazel-*
+
+# Intellij
 .idea/
 .idea/*
-.iml
-.ipr
-mercurial_hooks_v3.py
-.pyc
+*.ipr
+*.iml
+
+# Python
+*.pyc
+
+# Rust
 target/
+Cargo.lock
