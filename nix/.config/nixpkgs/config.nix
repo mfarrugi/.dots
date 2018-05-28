@@ -24,7 +24,8 @@
         jetbrains.idea-community
 
         ## Terminal Stuff
-        konsole
+        # konsole
+        termite
         zsh
         tmux
         powerline-fonts

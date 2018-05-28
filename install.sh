@@ -6,10 +6,12 @@ which nix-env || ( curl https://nixos.org/nix/install | sh )
 
 which stow || nix-env -i stow
 
-stow fonts scripts konsole git nix nvim tmux vim zsh htop \
+stow fonts scripts konsole git nix nvim tmux vim zsh htop termite \
     -v \
     --ignore='^_.*' \
     --ignore='README.md'
+
+sh ~/.dots/termite/_install.sh
 
 # Lots of files we don't care about.
 stow intellij \
