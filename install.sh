@@ -6,7 +6,7 @@ which nix-env || ( curl https://nixos.org/nix/install | sh )
 
 which stow || nix-env -i stow
 
-stow fonts scripts konsole git nix nvim tmux vim zsh \
+stow fonts scripts konsole git nix nvim tmux vim zsh htop \
     -v \
     --ignore='^_.*' \
     --ignore='README.md'
@@ -18,7 +18,8 @@ stow intellij \
     --ignore='README.md' \
     --no-folding
 
-nix-env -i all personal
+nix-env -i all
+# personal
 
 # Ensure zsh is default the default shell.
 if [ "$(basename $SHELL)" != "zsh" ]; then
