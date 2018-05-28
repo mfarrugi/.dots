@@ -8,9 +8,7 @@ alias trw='tmux rename-window '
 alias du='du -h --max-depth=1'
 alias g='git'
 
-alias df="echo '╓───── Disk Usage'; \
-          echo '╙────────────────────────────────────── ─ ─ '; \
-          df -h"
+alias df="df -h"
 
 # exa replaces `ls` and `tree`
 alias ls='exa'
