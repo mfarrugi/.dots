@@ -1,7 +1,6 @@
 # Meta, add an alias to the end of this file.
-adda() { echo "alias $1='$2'" >> $DOTS/zsh/_aliases &&  source ~/.zshrc; }
+adda() { echo "alias $1='$2'" >> $DOTS/zsh/_aliases && source ~/.zshrc; }
 
-# alias vim='nvim' # nix does this :shrug:
 alias top='htop'
 alias mv='mv -iv'
 alias x='exit'
@@ -15,5 +14,8 @@ alias df="echo '╓───── Disk Usage'; \
 
 # exa replaces `ls` and `tree`
 alias ls='exa'
-alias la='exa -la' # Override omzsh common-aliases
+alias la='exa -la' # Override omzsh common-aliases because exa doesn't take the same flags.
 alias tree='exa --tree'
+
+journal() { vim "$HOME/notes/journal/$(date +%Y-%m-%d).md" }
+
