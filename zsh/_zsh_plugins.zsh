@@ -54,7 +54,6 @@ bindkey "^[k" history-beginning-search-backward
 bindkey "^[j" history-beginning-search-forward
 
 
-
 ## history
 HISTSIZE=100000
 SAVEHIST=100000
