@@ -50,7 +50,7 @@
     f       = "!git fetch; git l ..@{u}"                                                                    ## Fetches and shows fetched commits.
     in      = log --pretty=myformat --date=relative ..@{u}                                                  ## Shows fetched commits. 
     vers    = "!f(){ git ls-remote --tags | grep $1 ;}; f"                                                  ## Shows tag for a commit (since we're not pulling tags)
-    current-branch = !giv rev-parse --abbrev-ref HEAD
+    current-branch = !git rev-parse --abbrev-ref HEAD
                                                                                                             
 [log]                                                                                                       
     abbrevCommit    = true                                                                                  ## Commit hash shortened.
