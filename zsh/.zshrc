@@ -17,6 +17,9 @@ export XDG_CACHE_HOME=$HOME/.cache
 export LANG=en_US.UTF-8
 # Don't set TERM, let tmux and the like do it.
 
+# Change shell cursor to | instead of box or underscore.
+echo -ne "\e[5 q" 
+
 export HOME=`cd $HOME; pwd -P`  # Change $HOME to physical $HOME for tmux.
 
 export EDITOR='nvim'
