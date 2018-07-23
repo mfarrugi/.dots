@@ -18,7 +18,9 @@ export LANG=en_US.UTF-8
 # Don't set TERM, let tmux and the like do it.
 
 # Change shell cursor to | instead of box or underscore.
-echo -ne "\e[5 q" 
+# nb. vim clobbers the shell cursor, so update it before every prompt.
+__ensure_cursor() { echo -ne "\e[5 q" } 
+precmd_functions+=__ensure_cursor
 
 export HOME=`cd $HOME; pwd -P`  # Change $HOME to physical $HOME for tmux.
 
