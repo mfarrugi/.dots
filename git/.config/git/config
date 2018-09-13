@@ -15,7 +15,9 @@
     rebase = true                                                                                           ## Rebase instead of merging pulls.
     
 [pretty]
-    myformat  = "%Cred%h%Creset %C(yellow)<%an>%Creset %s %Cgreen(%cr)"
+    # Like oneline, but with author, decorate, and relative-date.
+    oneline-plus = "%C(yellow)%h%C(auto)%d %C(reset)%C(green)[%aE]%C(white) %s %C(green)(%cr)%C(reset)"
+
 
 # Make `git mergetool` default to using intellij.
 [merge]
@@ -34,10 +36,8 @@
     paus    = commit -am \"STASHED COMMIT! -- NOT FOR PUSHING!\"                                            ## Simpler to keep track of than stashing.
     resu    = reset HEAD^
 
-    l       = log --pretty=myformat --date=relative                                                         ## Prettier log.
-    ls      = log --pretty=myformat --date=relative --stat                                                  ## Shows stats.
-    lu      = log --pretty=myformat --date=relative @{u}..                                                  ## Shows "Upstream", aka unpushed, commits.
-    lus     = log --pretty=myformat --date=relative @{u}.. --stat                                           ## Upstream with stats.
+    l       = log --pretty=oneline-plus                                                                     ## Prettier log.
+    lu      = log --pretty=oneline-plus @{u}..                                                              ## Shows "Upstream", aka unpushed, commits.
     sl      = shortlog --format='%Cred%h %Creset%s %Cgreen(%cr)' -30                                        ## Pretty short log.
     
     c       = commit -m
@@ -45,24 +45,21 @@
     ca      = commit -a --amend                                                                             ## Adds working files to the previous commit.
     cm      = commit -am                                                                                    ## Stages changed files and commits w/ message.
     
-    d       = diff                                                                                          
     df      = diff --name-only                                                                              ## Diff files.
-    dw      = diff --word-diff=plain                                                                        ## Diff words.
     
-    sh      = show                                                                                           
     shf     = show --oneline --name-only                                                                    ## Show files.
-    shw     = show --word-diff=plain                                                                        ## Show words.
-
+    
     s       = status -sb                                                                                    ##
                                                                                                             ##
     all     = submodule foreach git                                                                         ##
-    a       = submodule foreach git                                                                         ##
-                                                                                                            ##
+    each    = submodule foreach                                                                             ##
+
     patch   = "!f(){ git log --pretty=email --patch-with-stat --reverse  -- $1 > my.patch ; }; f"           ## Writes for a dir/file's full history.
                                                                                                             
     f       = "!git fetch; git l ..@{u}"                                                                    ## Fetches and shows fetched commits.
-    in      = log --pretty=myformat --date=relative ..@{u}                                                  ## Shows fetched commits. 
+    in      = log --pretty=oneline-plus ..@{u}                                                              ## Shows fetched commits. 
     vers    = "!f(){ git ls-remote --tags | grep $1 ;}; f"                                                  ## Shows tag for a commit (since we're not pulling tags)
+    
     current-branch = !git rev-parse --abbrev-ref HEAD
                                                                                                             
 [log]                                                                                                       
