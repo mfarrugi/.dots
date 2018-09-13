@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
-set -x
+set -xeuo pipefail
 
 which nix-env || ( curl https://nixos.org/nix/install | sh )
 
 which stow || nix-env -i stow
 
-stow fonts scripts konsole git nix nvim tmux vim zsh htop termite \
+stow fonts scripts git nix nvim tmux vim zsh htop termite \
     -v \
     --ignore='^_.*' \
     --ignore='README.md'
 
 sh ~/.dots/termite/_install.sh
 
-# Lots of files we don't care about.
+# Have stow link files instead of directories to avoid picking up files we don't care about.
 stow intellij \
     -v \
     --ignore='^_.*' \
