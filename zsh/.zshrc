@@ -28,6 +28,9 @@ export HOME=`cd $HOME; pwd -P`  # Change $HOME to physical $HOME for tmux.
 
 export EDITOR='nvim'
 source $DOTS/_zsh_plugins.zsh
+# @TODO Figure out how to have nix manage all the plugins, then give us one script to source.
+# Maybe figure out home-manager for this bit.
+source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 # Load our own aliases after plugins for potential overrides.
 source $DOTS/_aliases

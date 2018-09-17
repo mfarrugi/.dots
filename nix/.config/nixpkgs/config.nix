@@ -24,12 +24,13 @@
         jetbrains.idea-community
 
         ## Terminal Stuff
-        # konsole
         termite
-        zsh
         tmux
         powerline-fonts
         vistafonts # for Consolas
+
+        zsh
+        zsh-autosuggestions
 
         exa # Can I easily add aliases per package? eg. ls=exa
         htop
