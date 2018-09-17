@@ -36,13 +36,13 @@
         htop
         ripgrep
         fpp
-	fzf
-	graphviz
-	tokei
-	xsv
-	jq
+        fzf
+        graphviz
+        tokei
+        xsv
+        jq
 
-	hwloc
+        hwloc
 
         # Maybe don't want to install if already present..
         # curl
@@ -52,15 +52,15 @@
         # cargo
         bazel
         python3
-	python36Packages.black
-	mypy
+        python36Packages.black
+        mypy
 
-	ShellCheck
+        shellcheck
 
         ## Haven't used recently..
         # clion
-	# patchelf
-	# aha
+        # patchelf
+        # aha
       ];
     };
 
