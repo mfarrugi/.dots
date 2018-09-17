@@ -4,24 +4,20 @@ set -xeuo pipefail
 
 which nix-env || ( curl https://nixos.org/nix/install | sh )
 
-which stow || nix-env -i stow
+which stow || nix-env --install stow
 
-stow fonts scripts git nix nvim tmux vim zsh htop termite \
-    -v \
+# Setup all of the dot file symlinks.
+stow fonts scripts git nix nvim tmux vim zsh htop termite intellij \
+    --verbose \
     --ignore='^_.*' \
     --ignore='README.md'
 
+# Additional bespoke setup per package.
 sh ~/.dots/termite/_install.sh
 
-# Have stow link files instead of directories to avoid picking up files we don't care about.
-stow intellij \
-    -v \
-    --ignore='^_.*' \
-    --ignore='README.md' \
-    --no-folding
-
-nix-env -i all
-# personal
+# Install all of our packages.
+nix-env --uninstall stow
+nix-env --install all
 
 # Ensure zsh is default the default shell.
 if [ "$(basename $SHELL)" != "zsh" ]; then
@@ -30,5 +26,5 @@ if [ "$(basename $SHELL)" != "zsh" ]; then
 fi
 
 # Create ssh credentials, for at least github.
-[[ -e ~/.ssh/id_rsa.pub ]] || ( ssh-keygen -t rsa -C "afmarco@gmail.com" -b 4096 )
+[[ -e ~/.ssh/id_rsa.pub ]] || ( ssh-keygen -t rsa -C "$USER@$(hostname | cut -d'.' -f1)" -b 4096 )
 

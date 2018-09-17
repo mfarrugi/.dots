@@ -46,7 +46,7 @@
 
         # Maybe don't want to install if already present..
         # curl
-        # stow # installed by install.sh bootstrapping, which conflicts
+        stow
 
         # Easier to work with rustup for now:
         # cargo
