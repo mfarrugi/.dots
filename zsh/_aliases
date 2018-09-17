@@ -17,3 +17,4 @@ alias tree='exa --tree'
 
 journal() { vim "$HOME/notes/journal/$(date +%Y-%m-%d).md" }
 
+alias e='nvim'
