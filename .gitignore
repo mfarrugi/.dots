@@ -3,3 +3,8 @@ nvim/.config/nvim/.netrwhist
 
 # Maven
 **/.m2/repository
+
+# Intellij - Ignore settings files that we don't want to version.
+intellij/.IdeaIC2017.3/config/options/proxy.settings.xml
+intellij/.IdeaIC2017.3/config/options/usage.statistics.xml
+
