@@ -36,6 +36,14 @@
         htop
         ripgrep
         fpp
+	fzf
+	graphviz
+	tokei
+	xsv
+	jq
+
+	hwloc
+
         # Maybe don't want to install if already present..
         # curl
         # stow # installed by install.sh bootstrapping, which conflicts
@@ -44,9 +52,15 @@
         # cargo
         bazel
         python3
+	python36Packages.black
+	mypy
+
+	ShellCheck
 
         ## Haven't used recently..
-       # clion
+        # clion
+	# patchelf
+	# aha
       ];
     };
 
