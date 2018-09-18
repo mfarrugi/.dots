@@ -47,3 +47,4 @@ export CARGO_TARGET_DIR=$XDG_CACHE_HOME/cargo
 # Append work-only config.
 [[ -e $DOTS/../twosigma-specific/_zshrc ]] && source $DOTS/../twosigma-specific/_zshrc
 
+[[ ! -z $TMUX ]] || tmux attach -t main || tmux new -s main

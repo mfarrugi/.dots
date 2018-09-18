@@ -2,6 +2,7 @@
 
 set -xeuo pipefail
 
+which curl || (echo "Need curl to be around." && exit 1)
 which nix-env || ( curl https://nixos.org/nix/install | sh )
 
 which stow || nix-env --install stow
