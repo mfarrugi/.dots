@@ -4,7 +4,6 @@
   packageOverrides = pkgs: with pkgs; {
     all = with pkgs; buildEnv {
       name = "all";
-      # ignoreCollisions = true;
       # pathsToLink = [ "/bin" "/share" ]; # @TODO idk not an issue yet
       paths = [
         nox
@@ -19,7 +18,6 @@
           ];}];
         })
         git
-        # gitAndTools.hub
         gitAndTools.diff-so-fancy
         jetbrains.idea-community
 
@@ -32,7 +30,7 @@
         zsh
         zsh-autosuggestions
 
-        exa # Can I easily add aliases per package? eg. ls=exa
+        exa
         htop
         ripgrep
         fpp
@@ -41,26 +39,34 @@
         tokei
         xsv
         jq
-
         hwloc
-
-        # Maybe don't want to install if already present..
-        # curl
         stow
 
-        # Easier to work with rustup for now:
-        # cargo
+        # cargo # Easier to work with rustup for now:
         bazel
-        python3
-        python36Packages.black
-        mypy
+        bazel-buildtools
 
+        ## Python
+        python3
+        mypy
+        python36Packages.black
+        python36Packages.pyaml
+
+        # Bash
         shellcheck
 
         ## Haven't used recently..
         # clion
         # patchelf
         # aha
+      ];
+    };
+
+    # Java and other JVM tools.
+    java = with pkgs; buildEnv {
+      name = "java";
+      paths = [
+        jdk
       ];
     };
 
@@ -87,6 +93,7 @@
         pkgconfig
         openssl
         gcc
+        cmake
       ];
     };
 
@@ -95,7 +102,7 @@
       name = "personal";
       paths = [
         google-chrome
-        dropbox-cli
+        # dropbox-cli
         # steam # still using windows for most of this..
         # xflux-gui # This is now a builtin for ubuntu18 + gnome
     ];
