@@ -3,6 +3,9 @@ set shiftwidth=4
 set expandtab
 set hlsearch
 
+" Use system clipboard.
+set clipboard=unnamedplus
+
 " Render tabs as >--- instead of whitespace.
 set list
 " set listchars=tab:>-
@@ -40,3 +43,7 @@ set number
 " Stage / Add = <Leader>hs
 " Undo / Revert = <Leader>hu
 nmap <Leader>hr <Plug>GitGutterUndoHunk
+
+" ways to copy paste out of vim:
+set mouse+=a
+

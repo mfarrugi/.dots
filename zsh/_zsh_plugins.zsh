@@ -21,6 +21,7 @@ HIST_STAMPS="yyyy-mm-dd"
 # Might want to use ... ( extract dirhistory jump per-directory-history vi-mode z )
 
 zplug plugins/mercurial, from:oh-my-zsh
+zplug plugins/extract, from:oh-my-zsh
 
 # Zsh hack for this.. no recollection of what this does nor what this fixes.
 autoload -Uz is-at-least
