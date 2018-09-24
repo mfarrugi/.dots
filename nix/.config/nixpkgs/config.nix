@@ -7,6 +7,7 @@
       # pathsToLink = [ "/bin" "/share" ]; # @TODO idk not an issue yet
       paths = [
         nox
+
         (neovim.override {
           vimAlias = true;
           configure.customRC = "source $HOME/.config/nvim/init.vim";
@@ -17,15 +18,21 @@
             "vim-nix"
           ];}];
         })
+
         git
         gitAndTools.diff-so-fancy
         jetbrains.idea-community
 
         ## Terminal Stuff
         termite
-        tmux
         powerline-fonts
         vistafonts # for Consolas
+
+        tmux
+        tmuxPlugins.fpp
+        tmuxPlugins.cpu
+        tmuxPlugins.resurrect
+        tmuxPlugins.continuum
 
         zsh
         zsh-autosuggestions
