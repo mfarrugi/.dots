@@ -16,6 +16,7 @@
             # "airline"
             "gitgutter"
             "vim-nix"
+            "rainbow"
           ];}];
         })
 

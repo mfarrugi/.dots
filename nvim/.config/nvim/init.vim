@@ -47,3 +47,4 @@ nmap <Leader>hr <Plug>GitGutterUndoHunk
 " ways to copy paste out of vim:
 set mouse+=a
 
+let g:rainbow_active = 1
