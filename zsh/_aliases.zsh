@@ -1,5 +1,5 @@
 # Meta, add an alias to the end of this file.
-adda() { echo "alias $1='$2'" >> $DOTS/zsh/_aliases && source ~/.zshrc; }
+adda() { echo "alias $1='$2'" >> $DOTS/zsh/_aliases.zsh && source ~/.zshrc; }
 
 alias top='htop'
 alias mv='mv -iv'

@@ -1,9 +1,21 @@
 export DOTS=$HOME/.dots
 
-# Load third-party plugins first thing so our configs take precedence.
+# Load third-party plugins first so that our configs take precedence.
 source $DOTS/zsh/_plugins.zsh
 source $DOTS/zsh/_keybinds.zsh
 source $DOTS/zsh/_aliases.zsh
+
+path=(
+    $DOTS/scripts/_bin
+    $path
+)
+
+# nb. vim clobbers the shell cursor, so update it before every prompt.
+__ensure_cursor() {
+    # Change shell cursor to | instead of box or underscore.
+    echo -ne "\e[5 q"
+}
+precmd_functions+=__ensure_cursor
 
 # Autocomplete include hidden files
 setopt globdots
@@ -14,22 +26,14 @@ export XDG_CACHE_HOME=$HOME/.cache
 
 # Terminal text encoding, prevents broken colors and text rendering.
 export LANG="en_US.UTF-8"
-# Don't set TERM, let tmux and the like do it.
 
-export HOME=`cd $HOME; pwd -P`  # Change $HOME to physical $HOME for tmux.
-export EDITOR='nvim'
+export EDITOR="nvim"
 
-path=(
-    $DOTS/scripts/_bin
-    $path
-)
+# TODO: What did this fix?
+# export HOME=`cd $HOME; pwd -P`  # Change $HOME to physical $HOME for tmux.
 
-# Change shell cursor to | instead of box or underscore.
-# nb. vim clobbers the shell cursor, so update it before every prompt.
-__ensure_cursor() {
-    echo -ne "\e[5 q"
-}
-precmd_functions+=__ensure_cursor
+#-------------------------------------------------------------------------------
+# Program Specific
 
 # less - propagate colors
 export LESS=-r
@@ -41,6 +45,7 @@ export PYTHONSTARTUP=$DOTS/python/_PYTHONSTARTUP.py
 export CARGO_TARGET_DIR=$XDG_CACHE_HOME/cargo
 
 # intellij
+source $DOTS/intellij/_shell.sh
 JETBRAINS_PROPERTIES=$DOTS/intellij/_idea.properties
 export IDEA_PROPERTIES=$JETBRAINS_PROPERTIES
 export CLION_PROPERTIES=$JETBRAINS_PROPERTIES
