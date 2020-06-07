@@ -1,26 +1,29 @@
-set tabstop=4
-set shiftwidth=4
-set expandtab
+" Use jk instead of <esc> to exit insert mode.
+inoremap jk <esc>
+
 set hlsearch
 
 " Use system clipboard.
 set clipboard=unnamedplus
 
+" ways to copy paste out of vim:
+set mouse+=a
+
+"-------------------------------------------------------------------------------
+" Editing
+
+set shiftwidth=4
+set expandtab
+
+"-------------------------------------------------------------------------------
+" Rendering
+
+syntax on
+set tabstop=4
+
 " Render tabs as >--- instead of whitespace.
 set list
-" set listchars=tab:>-
 set listchars=tab:▶‒,extends:›,precedes:‹,nbsp:·,trail:·
-
-" Need to fix nvim binary pointing to unavailable syntax.vim...
-syntax on
-
-
-" Use jk instead of <esc> to exit insert mode.
-inoremap jk <esc>
-
-" Getting Shift-Space to work as a key-binding is tricky because of weird terminal shit I don't care to delve into right now.
-" inoremap <S-space> <Esc>
-
 
 " Show line numbers in the sidebar as 
 "  2
@@ -28,15 +31,14 @@ inoremap jk <esc>
 " 35 Current line
 "  1
 "  2
-"  When both are set at the same time
 set relativenumber
 set number
 
-" <Leader> is \ by default
-" let mapleader = "\"
+"-------------------------------------------------------------------------------
+" Plugins
 
-" # GitGutter
-" ## Hunks
+" GitGutter
+"
 " Next Hunk = [c
 " Prev Hunk = ]c
 " Preview = <Leader>hp
@@ -44,7 +46,5 @@ set number
 " Undo / Revert = <Leader>hu
 nmap <Leader>hr <Plug>GitGutterUndoHunk
 
-" ways to copy paste out of vim:
-set mouse+=a
-
+" Rainbo Parentheses
 let g:rainbow_active = 1
