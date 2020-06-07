@@ -10,11 +10,11 @@ download() {
 }
 
 install() {
-    # TODO: Might want to change back to using --no-folding
     stow \
         --verbose \
         --ignore='^_.*' \
         --ignore='README.md' \
+        --no-folding \
         \
         fonts \
         git \

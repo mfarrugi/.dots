@@ -1,10 +1,8 @@
+# Some files will leak into this repo when we run stow without --no-folding, ignore them.
+
 # Neovim
 nvim/.config/nvim/.netrwhist
 
-# Maven
-**/.m2/repository
-
 # Intellij - Ignore settings files that we don't want to version.
-intellij/.IdeaIC2017.3/config/options/proxy.settings.xml
-intellij/.IdeaIC2017.3/config/options/usage.statistics.xml
-
+intellij/_config/options/proxy.settings.xml
+intellij/_config/options/usage.statistics.xml

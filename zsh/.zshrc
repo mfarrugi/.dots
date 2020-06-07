@@ -40,5 +40,11 @@ export PYTHONSTARTUP=$DOTS/python/_PYTHONSTARTUP.py
 # rust
 export CARGO_TARGET_DIR=$XDG_CACHE_HOME/cargo
 
+# intellij
+JETBRAINS_PROPERTIES=$DOTS/intellij/_idea.properties
+export IDEA_PROPERTIES=$JETBRAINS_PROPERTIES
+export CLION_PROPERTIES=$JETBRAINS_PROPERTIES
+export PYCHARM_PROPERTIES=$JETBRAINS_PROPERTIES
+
 # Append work-only config.
 [[ -e $DOTS/work-specific/_zshrc ]] && source $DOTS/work-specific/_zshrc
