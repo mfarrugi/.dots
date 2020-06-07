@@ -2,30 +2,62 @@
 
 set -xeuo pipefail
 
-which curl || (echo "Need curl to be around." && exit 1)
-which nix-env || ( curl https://nixos.org/nix/install | sh )
+download() {
+    which nix-env || ( curl https://nixos.org/nix/install | sh )
 
-which stow || nix-env --install stow
+    ln -sf $(pwd)/nix/.config/nixpkgs/config.nix ~/.config/nixpkgs/config.nix || true
+    nix-env --install all
+}
 
-# Setup all of the dot file symlinks.
-stow fonts scripts git nix nvim tmux vim zsh htop termite intellij \
-    --verbose \
-    --ignore='^_.*' \
-    --ignore='README.md'
+install() {
+    # TODO: Might want to change back to using --no-folding
+    stow \
+        --verbose \
+        --ignore='^_.*' \
+        --ignore='README.md' \
+        \
+        fonts \
+        git \
+        htop \
+        intellij \
+        nix \
+        nvim \
+        python \
+        scripts \
+        termite \
+        tmux \
+        zsh
 
-# Additional bespoke setup per package.
-sh ~/.dots/termite/_install.sh
+    # Additional bespoke setup per program.
+    sh termite/_install.sh
 
-# Install all of our packages.
-nix-env --uninstall stow
-nix-env --install all
+    # Ensure zsh is default the default shell.
+    if [ "$(basename $SHELL)" != "zsh" ]; then
+        grep zsh /etc/shells || (command -v zsh | sudo tee -a /etc/shells)
+        chsh -s $(command -v zsh)
+    fi
 
-# Ensure zsh is default the default shell.
-if [ "$(basename $SHELL)" != "zsh" ]; then
-    grep zsh /etc/shells || (command -v zsh | sudo tee -a /etc/shells)
-    chsh -s $(command -v zsh)
+    # Create ssh credentials, for at least github.
+    [[ -e ~/.ssh/id_rsa.pub ]] || ( ssh-keygen -t rsa -C "$USER@$(hostname | cut -d'.' -f1)" -b 4096 )
+}
+
+while [[ "$#" -gt 0 ]]; do
+    case $1 in
+        --download)
+            DOWNLOAD=true
+            shift
+            ;;
+        --install)
+            INSTALL=true
+            shift
+            ;;
+    esac
+done
+
+if [[ -n "${DOWNLOAD:-}" ]]; then
+    download
 fi
 
-# Create ssh credentials, for at least github.
-[[ -e ~/.ssh/id_rsa.pub ]] || ( ssh-keygen -t rsa -C "$USER@$(hostname | cut -d'.' -f1)" -b 4096 )
-
+if [[ -n "${INSTALL:-}" ]]; then
+    install
+fi

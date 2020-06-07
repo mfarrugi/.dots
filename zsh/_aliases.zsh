@@ -20,3 +20,6 @@ journal() { vim "$HOME/notes/journal/$(date +%Y-%m-%d).md" }
 alias e='nvim'
 
 alias rg="rg --type-add 'bazel:*.bzl' --type-add 'bazel:*BUILD*'" 
+
+alias -g P='| fpp'
+alias -g F='| fzf'

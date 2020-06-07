@@ -4,57 +4,73 @@
   packageOverrides = pkgs: with pkgs; {
     all = with pkgs; buildEnv {
       name = "all";
-      # pathsToLink = [ "/bin" "/share" ]; # @TODO idk not an issue yet
       paths = [
-        nox
-
-        (neovim.override {
-          vimAlias = true;
-          configure.customRC = "source $HOME/.config/nvim/init.vim";
-          # Don't need to use vam, but whatever.
-          configure.vam.pluginDictionaries = [ { names = [
-            # "airline"
-            "gitgutter"
-            "vim-nix"
-            "rainbow"
-          ];}];
-        })
-
-        git
-        gitAndTools.diff-so-fancy
-        jetbrains.idea-community
-
-        ## Terminal Stuff
-        termite
         powerline-fonts
         vistafonts # for Consolas
 
+        # Terminal Emulator
+        termite
+
+        # Terminal Multiplexer
         tmux
-        tmuxPlugins.fpp
         tmuxPlugins.cpu
-        tmuxPlugins.resurrect
-        tmuxPlugins.continuum
+        tmuxPlugins.fpp
+        tmuxPlugins.pain-control
+        tmuxPlugins.sensible
 
+        # Shell
         zsh
+        oh-my-zsh
         zsh-autosuggestions
+        zsh-bd
+        zsh-completions
+        zsh-syntax-highlighting
+        zsh-powerlevel10k
 
+        # Editor
+        (neovim.override {
+          vimAlias = true;
+          configure.customRC = "source $HOME/.config/nvim/init.vim";
+          configure.vam.pluginDictionaries = [ {
+            names = [
+              # "airline"
+              "gitgutter"
+              "vim-nix"
+              "rainbow"
+            ];
+          }];
+        })
+
+        # Version Control
+        git
+        gitAndTools.diff-so-fancy
+
+        # Utils - Files & Search
         exa
-        htop
+        bat
+        fd
         ripgrep
         fpp
         fzf
+
+        # Utils - Data Munging
+        jq
+        xsv
+
+        # Utils - Miscellaneous
+        htop
         graphviz
         tokei
-        xsv
-        jq
         hwloc
         stow
+        hexyl
+        xclip
+        nox
 
-        # cargo # Easier to work with rustup for now:
         bazel
         bazel-buildtools
 
-        ## Python
+        # Python
         python3
         mypy
         python36Packages.black
@@ -62,19 +78,29 @@
 
         # Bash
         shellcheck
-
-        ## Haven't used recently..
-        # clion
-        # patchelf
-        # aha
       ];
     };
 
-    # Java and other JVM tools.
     java = with pkgs; buildEnv {
       name = "java";
       paths = [
         jdk
+        jetbrains.idea-community
+      ];
+    };
+
+    # Tools and libraries for native code development.
+    # Build systems commonly assume these things are present.
+    native = with pkgs; buildEnv {
+      name = "native";
+      paths = [
+        gnumake
+        pkgconfig
+        openssl
+        gcc
+        cmake
+        patchelf
+        clion
       ];
     };
 
@@ -92,28 +118,15 @@
       ];
     };
 
-    # Tools and libraries for native code development.
-    ## bazel, cargo, and others assume these things are present.
-    native = with pkgs; buildEnv {
-      name = "native";
-      paths = [
-        gnumake
-        pkgconfig
-        openssl
-        gcc
-        cmake
-      ];
-    };
-
     # Stuff I can't or shouldn't install on a computer I don't own.
     personal = with pkgs; buildEnv {
       name = "personal";
       paths = [
         google-chrome
-        # dropbox-cli
-        # steam # still using windows for most of this..
-        # xflux-gui # This is now a builtin for ubuntu18 + gnome
-    ];
+        vlc
+        gparted
+      ];
+    };
+
   };
- };
 }
