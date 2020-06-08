@@ -319,6 +319,12 @@
         <option name="FONT_TYPE" value="2" />
       </value>
     </option>
+    <option name="DEFAULT_DOC_COMMENT_TAG_VALUE">
+      <value>
+        <option name="FOREGROUND" value="bfa4a4" />
+        <option name="FONT_TYPE" value="3" />
+      </value>
+    </option>
     <option name="DEFAULT_DOC_MARKUP">
       <value>
         <option name="FOREGROUND" value="d9e577" />
@@ -337,17 +343,17 @@
     </option>
     <option name="DEFAULT_FUNCTION_CALL">
       <value>
-        <option name="FOREGROUND" value="58c1ff" />
+        <option name="FOREGROUND" value="79abff" />
       </value>
     </option>
     <option name="DEFAULT_FUNCTION_DECLARATION">
       <value>
-        <option name="FOREGROUND" value="bed6ff" />
+        <option name="FOREGROUND" value="79abff" />
       </value>
     </option>
     <option name="DEFAULT_GLOBAL_VARIABLE">
       <value>
-        <option name="FOREGROUND" value="79abff" />
+        <option name="FOREGROUND" value="efc090" />
       </value>
     </option>
     <option name="DEFAULT_IDENTIFIER">
@@ -385,6 +391,7 @@
     <option name="DEFAULT_LABEL">
       <value>
         <option name="FOREGROUND" value="bfa4a4" />
+        <option name="EFFECT_TYPE" value="4" />
       </value>
     </option>
     <option name="DEFAULT_LINE_COMMENT">
@@ -395,7 +402,7 @@
     </option>
     <option name="DEFAULT_LOCAL_VARIABLE">
       <value>
-        <option name="FOREGROUND" value="79abff" />
+        <option name="FOREGROUND" value="bed6ff" />
       </value>
     </option>
     <option name="DEFAULT_METADATA">
@@ -662,14 +669,81 @@
         <option name="EFFECT_TYPE" value="2" />
       </value>
     </option>
+    <option name="OC.CONCEPT">
+      <value>
+        <option name="FOREGROUND" value="d197d9" />
+      </value>
+    </option>
+    <option name="OC.CONDITIONALLY_NOT_COMPILED">
+      <value>
+        <option name="FOREGROUND" value="bbbbbb" />
+      </value>
+    </option>
+    <option name="OC.LABEL">
+      <value>
+        <option name="FOREGROUND" value="d8d8d8" />
+        <option name="EFFECT_COLOR" value="d8d8d8" />
+        <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="OC.MACRONAME">
+      <value>
+        <option name="FOREGROUND" value="dd6718" />
+        <option name="FONT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="OC.NAMESPACE_LIKE">
+      <value>
+        <option name="FOREGROUND" value="c57633" />
+      </value>
+    </option>
+    <option name="OC.OVERLOADED_OPERATOR">
+      <value>
+        <option name="FOREGROUND" value="ebebeb" />
+      </value>
+    </option>
+    <option name="OC.STRUCT_FIELD">
+      <value>
+        <option name="FOREGROUND" value="bed6ff" />
+      </value>
+    </option>
+    <option name="OC.STRUCT_LIKE">
+      <value>
+        <option name="FOREGROUND" value="d25252" />
+      </value>
+    </option>
+    <option name="OC.TEMPLATE_TYPE">
+      <value>
+        <option name="FOREGROUND" value="bfa4a4" />
+      </value>
+    </option>
+    <option name="OC.TEMPLATE_VALUE">
+      <value>
+        <option name="FOREGROUND" value="bfa4a4" />
+      </value>
+    </option>
+    <option name="OC.TYPEDEF">
+      <value>
+        <option name="FOREGROUND" value="d25252" />
+      </value>
+    </option>
     <option name="PARAMETER_ATTRIBUTES">
       <value>
         <option name="FOREGROUND" value="bfa4a4" />
       </value>
     </option>
+    <option name="PY.ANNOTATION">
+      <value>
+        <option name="FOREGROUND" value="d25252" />
+      </value>
+    </option>
     <option name="PY.BUILTIN_NAME" baseAttributes="DEFAULT_PREDEFINED_SYMBOL" />
     <option name="PY.CLASS_DEFINITION" baseAttributes="DEFAULT_CLASS_NAME" />
-    <option name="PY.DECORATOR" baseAttributes="DEFAULT_IDENTIFIER" />
+    <option name="PY.DECORATOR">
+      <value>
+        <option name="FOREGROUND" value="d9e577" />
+      </value>
+    </option>
     <option name="PY.FUNC_DEFINITION" baseAttributes="DEFAULT_FUNCTION_DECLARATION" />
     <option name="PY.KEYWORD_ARGUMENT">
       <value>
@@ -678,6 +752,11 @@
     </option>
     <option name="PY.PREDEFINED_DEFINITION" baseAttributes="DEFAULT_PREDEFINED_SYMBOL" />
     <option name="PY.PREDEFINED_USAGE" baseAttributes="DEFAULT_PREDEFINED_SYMBOL" />
+    <option name="PY.SELF_PARAMETER">
+      <value>
+        <option name="FOREGROUND" value="ebebeb" />
+      </value>
+    </option>
     <option name="PY.STRING.U" baseAttributes="DEFAULT_STRING" />
     <option name="SEARCH_RESULT_ATTRIBUTES">
       <value>
@@ -841,11 +920,17 @@
         <option name="EFFECT_TYPE" value="5" />
       </value>
     </option>
+    <option name="org.rust.MUT_PARAMETER" baseAttributes="DEFAULT_PARAMETER" />
     <option name="org.rust.PARAMETER">
       <value>
         <option name="FOREGROUND" value="bfa4a4" />
         <option name="EFFECT_COLOR" value="3c3f41" />
         <option name="EFFECT_TYPE" value="1" />
+      </value>
+    </option>
+    <option name="org.rust.PRIMITIVE_TYPE">
+      <value>
+        <option name="FOREGROUND" value="d25252" />
       </value>
     </option>
     <option name="org.rust.SELF">
@@ -856,6 +941,12 @@
     <option name="org.rust.TYPE_PARAMETER">
       <value>
         <option name="FOREGROUND" value="bfa4a4" />
+      </value>
+    </option>
+    <option name="org.rust.UNSAFE_CODE">
+      <value>
+        <option name="FOREGROUND" value="79abff" />
+        <option name="EFFECT_COLOR" value="79abff" />
       </value>
     </option>
   </attributes>
