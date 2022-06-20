@@ -16,8 +16,12 @@ bazel-*
 *.ipr
 *.iml
 
+# Nix
+result*
+
 # Python
 *.pyc
+__pycache__
 
 # Rust
 target/
