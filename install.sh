@@ -5,7 +5,8 @@ set -xeuo pipefail
 download() {
     which nix-env || ( curl https://nixos.org/nix/install | sh )
 
-    ln -sf $(pwd)/nix/.config/nixpkgs/config.nix ~/.config/nixpkgs/config.nix || true
+    mkdir -p ~/.config/nixpkgs
+    ln -sf $(pwd)/nix/.config/nixpkgs/config.nix ~/.config/nixpkgs/config.nix
     nix-env --install all
 }
 
