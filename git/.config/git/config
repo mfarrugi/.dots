@@ -13,6 +13,10 @@
 [pull]
     rebase = true
 
+# Don't pull tags by default.
+[remote "origin"]
+    tagOpt = --no-tags
+
 [log]
     abbrevCommit = true
     topoOrder = true
@@ -59,3 +63,4 @@
     f        = "!git fetch --no-tags; git l ..@{u}"                                                  ## Fetch without tags, then show fetched commits.
     show-tags = "!f(){ COMMITISH=$1; SHA=$(git rev-parse $COMMITISH); git ls-remote --tags | grep $SHA;}; f"  ## Show tags for a commit (since we're not pulling tags)
     current-branch = !git rev-parse --abbrev-ref HEAD
+    root     = rev-parse --show-toplevel
