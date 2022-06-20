@@ -15,9 +15,13 @@ set mouse+=a
 set shiftwidth=4
 set expandtab
 
-"-------------------------------------------------------------------------------
-" Rendering
+" YAML
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
+"-------------------------------------------------------------------------------
+" Appearance
+
+colorscheme desert
 syntax on
 set tabstop=4
 
@@ -25,18 +29,13 @@ set tabstop=4
 set list
 set listchars=tab:▶‒,extends:›,precedes:‹,nbsp:·,trail:·
 
-" Show line numbers in the sidebar as 
-"  2
-"  1
-" 35 Current line
-"  1
-"  2
-set relativenumber
+" Show line numbers in the sidebar.
 set number
 
 "-------------------------------------------------------------------------------
 " Plugins
 
+"...............................................................................
 " GitGutter
 "
 " Next Hunk = [c
@@ -44,7 +43,18 @@ set number
 " Preview = <Leader>hp
 " Stage / Add = <Leader>hs
 " Undo / Revert = <Leader>hu
-nmap <Leader>hr <Plug>GitGutterUndoHunk
+nmap <Leader>hr <Plug>(GitGutterUndoHunk)
 
-" Rainbo Parentheses
+"...............................................................................
+" Rainbow Parentheses
 let g:rainbow_active = 1
+
+"...............................................................................
+" vim-indent-guides
+"
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 0
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=234
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=238
