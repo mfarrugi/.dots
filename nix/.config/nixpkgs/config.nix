@@ -5,6 +5,7 @@
     all = with pkgs; buildEnv {
       name = "all";
       paths = [
+        # Fonts
         powerline-fonts
         vistafonts # for Consolas
 
@@ -33,51 +34,97 @@
           configure.customRC = "source $HOME/.config/nvim/init.vim";
           configure.vam.pluginDictionaries = [ {
             names = [
-              # "airline"
+              "airline"
+              "fzf-vim"
               "gitgutter"
-              "vim-nix"
               "rainbow"
+              "vim-indent-guides"
+              "vim-nix"
             ];
           }];
         })
 
         # Version Control
         git
+        git-filter-repo
+        gitAndTools.delta
         gitAndTools.diff-so-fancy
 
         # Utils - Files & Search
-        exa
         bat
+        broot
+        exa
         fd
-        ripgrep
         fpp
         fzf
+        ripgrep
+        zoxide
+
+        # Utils - Storage
+        duf
+        du-dust
+        ncdu
+
+        # Utils - Compute
+        htop
+        procs
+        perf-tools
 
         # Utils - Data Munging
         jq
+        sd
         xsv
 
         # Utils - Miscellaneous
-        htop
+        direnv
         graphviz
-        tokei
+        htop
         hwloc
-        stow
-        hexyl
-        xclip
         nox
+        stow
+        tldr
+        tokei
+        xclip
 
+        # Utils - bin
+        bloaty
+        hexyl
+
+        # Bazel
         bazel
-        bazel-buildtools
+        bazel-buildtools # for buildifier
 
         # Python
-        python3
+        (python3.withPackages (ps: with ps; [
+          pyaml
+          rich
+          typer
+        ]))
         mypy
-        python36Packages.black
-        python36Packages.pyaml
+        python3Packages.black
+
+        # jetbrains.idea-ultimate
+        # jetbrains.pycharm-professional
 
         # Bash
         shellcheck
+
+        # Rust
+        cargo
+        rustc
+        rustfmt
+
+        # Nix
+        nixpkgs-fmt
+
+      ];
+    };
+
+    cpp = with pkgs; buildEnv {
+      name = "cpp";
+      paths = [
+        jetbrains.clion
+        llvmPackages.clang-unwrapped.python # for git-clang-format
       ];
     };
 
@@ -94,13 +141,13 @@
     native = with pkgs; buildEnv {
       name = "native";
       paths = [
-        gnumake
-        pkgconfig
-        openssl
-        gcc
-        cmake
-        patchelf
         clion
+        cmake
+        gcc
+        gnumake
+        openssl
+        patchelf
+        pkgconfig
       ];
     };
 
@@ -108,12 +155,12 @@
     embedded = with pkgs; buildEnv {
       name = "embedded";
       paths = [
-        gcc-arm-embedded
-        python36Packages.pyserial
+        # bossa # needs to come from apt, would be nice if openocd just worked.
         arduino
+        gcc-arm-embedded
         openocd
-        # bossa # needs to come from apt, would be nice of openocd just worked.
         platformio
+        python36Packages.pyserial
         urjtag
       ];
     };
@@ -123,8 +170,8 @@
       name = "personal";
       paths = [
         google-chrome
-        vlc
         gparted
+        vlc
       ];
     };
 
