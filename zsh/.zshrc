@@ -1,14 +1,12 @@
-export DOTS=$HOME/.dots
+if [[ ! -v DOTS ]]; then
+    local __FILE__=$(realpath $(print -P %N))
+    source $(dirname $__FILE__)/.zshenv
+fi
 
 # Load third-party plugins first so that our configs take precedence.
 source $DOTS/zsh/_plugins.zsh
 source $DOTS/zsh/_keybinds.zsh
 source $DOTS/zsh/_aliases.zsh
-
-path=(
-    $DOTS/scripts/_bin
-    $path
-)
 
 # nb. vim clobbers the shell cursor, so update it before every prompt.
 __ensure_cursor() {
@@ -34,6 +32,12 @@ export EDITOR="nvim"
 
 #-------------------------------------------------------------------------------
 # Program Specific
+
+# bat
+export BAT_THEME="base16"
+
+# fzf
+export FZF_DEFAULT_COMMAND='rg --files'
 
 # less - propagate colors
 export LESS=-r

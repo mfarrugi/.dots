@@ -17,11 +17,13 @@ mkdir -p $(dirname $HISTFILE)
 
 
 source $NIX_SHARE/zsh-powerlevel10k/powerlevel10k.zsh-theme
-DEFAULT_USER=marco
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context dir dir_writable vcs) # vi_mode for zle
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status command_execution_time root_indicator background_jobs history time)
+source $DOTS/zsh/_p10k.zsh
 
 source $NIX_SHARE/oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh
+unalias duf
+
+eval "$(direnv hook zsh)"
+eval "$(zoxide init zsh)"
 
 fpath=(
     $NIX_SHARE/zsh/site-functions/
