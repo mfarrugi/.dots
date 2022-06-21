@@ -1,0 +1,20 @@
+#!/usr/bin/env python3
+
+import os
+import sys
+
+def proxied(command):
+    proxy = os.environ["PROXY"]
+
+    os.environ.update({
+        "HTTPS_PROXY": "https://" + proxy,
+        "HTTP_PROXY": "http://" + proxy,
+        "ftp_proxy": proxy,
+        "ftps_proxy": proxy,
+        "http_proxy": "http://" + proxy,
+        "https_proxy": "https://" + proxy,
+    })
+    os.execvp(command[0], command)
+
+if __name__ == "__main__":
+    proxied(sys.argv[1:])

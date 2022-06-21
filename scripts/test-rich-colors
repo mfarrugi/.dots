@@ -1,0 +1,23 @@
+#!/usr/bin/env python3
+from rich.console import Console
+
+console = Console()
+
+
+def grid():
+    for x in range(16):
+        for y in range(16):
+            i = x * 16 + y
+            console.print("X ", style=f"color({i})", end="")
+        console.print()
+    console.print()
+
+
+def rows():
+    for x in range(256):
+        console.print("X" * 16, style=f"color({x})", end="")
+        console.print()
+
+
+print(console)
+rows()

@@ -24,7 +24,6 @@ install() {
         nix \
         nvim \
         python \
-        scripts \
         termite \
         tmux \
         zsh
