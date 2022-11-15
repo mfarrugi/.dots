@@ -43,6 +43,7 @@
             ];
           }];
         })
+        helix
 
         # Version Control
         git
