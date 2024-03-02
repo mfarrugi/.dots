@@ -1,9 +1,5 @@
 [options]
-# Relies on _install.sh script to have installed the font.
-font = Inconsolata for Powerline 15
-
-# Rendering issues with consolas, oh well.
-# font = Consolas NF 15
+font = Consolas Nerd Font 15
 
 # Pasted from: https://github.com/khamer/base16-termite/blob/master/themes/base16-tomorrow-night.config
 [colors]

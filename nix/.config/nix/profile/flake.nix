@@ -10,6 +10,12 @@
       pkgs = import nixpkgs {
         system = "x86_64-linux";
         config.allowUnfree = true;
+
+        overlays = [
+          (self: super: {
+            consolas-nerdfont = self.callPackage ./consolas-nerd-font { };
+          })
+        ];
       };
     in
     {
@@ -21,7 +27,8 @@
           # alacritty didnt work
 
           # Font
-          (nerdfonts.override { fonts = [ "Inconsolata" ]; })
+          consolas-nerdfont
+          # (nerdfonts.override { fonts = [ "Inconsolata" ]; })
 
           # Terminal Emulator
           termite
