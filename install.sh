@@ -3,19 +3,18 @@
 set -xeuo pipefail
 
 download() {
-    which nix-env || ( curl https://nixos.org/nix/install | sh )
+    which nix || ( curl https://nixos.org/nix/install | sh )
 
-    mkdir -p ~/.config/nixpkgs
-    ln -sf $(pwd)/nix/.config/nixpkgs/config.nix ~/.config/nixpkgs/config.nix
-    nix-env --install all
+    # This requires `git` to work from under a source directory, so move it elsewhere first.
+    ln -sfn $(pwd)/nix/.config/nix ~/.config/nix
+    nix profile install ~/.config/nix/profile
 }
 
 install() {
+    # Ignore non-dot files when creating symlinks.
     stow \
         --verbose \
-        --ignore='^_.*' \
-        --ignore='README.md' \
-        --no-folding \
+        --ignore='^(?![.]).*' \
         \
         fonts \
         git \
