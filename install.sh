@@ -19,16 +19,13 @@ install() {
         fonts \
         git \
         htop \
-        intellij \
         nix \
         nvim \
         python \
         termite \
         tmux \
+        ubuntu-gnome \
         zsh
-
-    # Additional bespoke setup per program.
-    sh termite/_install.sh
 
     # Ensure zsh is default the default shell.
     if [ "$(basename $SHELL)" != "zsh" ]; then

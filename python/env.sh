@@ -1,0 +1,1 @@
+export PYTHONSTARTUP=$DOTS/python/PYTHONSTARTUP.py

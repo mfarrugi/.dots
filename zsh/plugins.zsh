@@ -17,7 +17,7 @@ mkdir -p $(dirname $HISTFILE)
 
 
 source $NIX_SHARE/zsh-powerlevel10k/powerlevel10k.zsh-theme
-source $DOTS/zsh/_p10k.zsh
+source $DOTS/zsh/p10k.zsh
 
 source $NIX_SHARE/oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh
 unalias duf 2>/dev/null
