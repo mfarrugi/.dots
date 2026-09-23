@@ -23,7 +23,7 @@ source $NIX_SHARE/oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh
 unalias duf 2>/dev/null
 
 eval "$(direnv hook zsh)"
-eval "$(zoxide init zsh)"
+eval "$(zoxide init zsh --cmd d)"
 
 fpath=(
     $NIX_SHARE/zsh/site-functions/
